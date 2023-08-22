@@ -1,0 +1,33 @@
+<%= form_with(model: @cat_comment) do |form| %>
+<% if @cat_comment.errors.any? %>
+<div style= "color:red">
+<h2><%= pluralize(cat_comment.errors.count, "error")%>Este comentario no se pudo crear</h2>
+
+<ul>
+<% @cat_comment.errors.each do |error|%>
+<li><%=error.full_messages %></li>
+<% end %>
+</ul>
+</div>
+<% end %>
+
+<div>
+    <%= form.label :content, style: "display: block" %>
+    <%= form.text_field :content %>
+  </div>
+
+  <div>
+    <%= form.label :catuser_id, style: "display: block" %>
+    <%= form.text_field :catuser_id %>
+  </div>
+
+  <div>
+    <%= form.label :article_id, style: "display: block" %>
+    <%= form.text_field :article_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
